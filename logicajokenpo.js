@@ -9,10 +9,13 @@ var input = document.getElementById("escolhaJogador");
 var iniciarJogo = document.getElementById("iniciarJogo");
 iniciarJogo.onclick = jogarJokenpo;
 
+var escolhas = ['pedra', 'papel', 'tesoura'];
 
+//Func para mostrar o resultado da partida.
     function mostraResultado(frase) {
         document.getElementById("resultado").textContent = frase;
         document.getElementById("resultado").appendChild(document.createElement("br"));
+        resultadoDiv.style.color = "black";
     }
 
 
@@ -23,7 +26,6 @@ function mostra (frase){
 
 // Função para gerar a escolha aleatória do computador
 function computadorEscolhe() {
-    var escolhas = ['pedra', 'papel', 'tesoura'];
     var indice = Math.floor(Math.random() * 3);
     return escolhas[indice];
 }
@@ -44,30 +46,32 @@ function verificarVencedor(escolhaJogador, escolhaComputador) {
 
 function jogarJokenpo(escolhaJogador) {
     var escolhaJogador = input.value;
-    var escolhaComputador = computadorEscolhe();
-    var resultado = verificarVencedor(escolhaJogador, escolhaComputador);
-    
-    // Exibe as escolhas e o resultado
-    alert("JOKENPO");
-    alert("Jogador escolheu: " + escolhaJogador);
-    alert("Computador escolheu: " + escolhaComputador);
-    alert("Resultado: " + resultado);
-    
-    input.value = ("");
-    input.focus();
+    if (escolhas.includes(escolhaJogador)){
+        var resultado = document.getElementById("resultado");
+        resultado.style.color = "black";
+        var escolhaComputador = computadorEscolhe();
+        var resultado = verificarVencedor(escolhaJogador, escolhaComputador);
+        // Exibe as escolhas e o resultado
+        alert("JOKENPO");
+        alert("Jogador escolheu: " + escolhaJogador);
+        alert("Computador escolheu: " + escolhaComputador);
+        alert("Resultado: " + resultado);
+        input.value = ("");
+        input.focus();
+        
 
-    if ( (resultado == "Você perdeu"  ) || (resultado == "Você venceu")){
-        mostraResultado(resultado + " a ultima partida.");
+        if ( (resultado == "Você perdeu"  ) || (resultado == "Você venceu")){
+            mostraResultado(resultado + " a ultima partida.");
+
+        } else {
+            return mostraResultado("O ultimo resultado foi " + resultado);
+        }
 
     } else {
-        return mostraResultado("O ultimo resultado foi " + resultado);
+        var resultadoDiv = document.getElementById("resultado");
+        resultadoDiv.style.color = "red";
+        resultadoDiv.textContent = "Digite uma escolha válida, como no exemplo.";
     }
-    
-
-   
 }
-
-
-
 
 });
