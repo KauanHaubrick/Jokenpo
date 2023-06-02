@@ -1,69 +1,18 @@
-<meta charset="UTF-8">
-<h1>JOKENPO</h1>
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOKENPO</title>
+</head>
+<body>
+    <h1>JOKENPO</h1>
+    <script src="Logicajokenpo.js"> </script>
+    pedra, papel ou tesoura<br>
+    <input type="text" id="escolhaJogador"><br>
+    <button id="iniciarJogo">Jogar JOKENPO</button> 
+    <div id="resultado"></div>
+</body>
+</html>
 
-pedra, papel ou tesoura<br>
-<input type="text"><br>
-<button>Jogar JOKENPO</button>
-
-
-<script>
-
-
-// Variavel input recebe a entrada string digitado
-var input = document.querySelector("input");
-
-// Variavel iniciarJogo faz com que a função de jogarJokenpo seja iniciada ao clicar no botão impresso na tela
-
-var iniciarJogo = document.querySelector("button");
-	iniciarJogo.onclick = jogarJokenpo;
-
-
-
-function mostra (frase){
-      document.write(frase);
-      document.write("<br>");
-  }
-
-// Função para gerar a escolha aleatória do computador
-function computadorEscolhe() {
-    var escolhas = ['pedra', 'papel', 'tesoura'];
-    var indice = Math.floor(Math.random() * 3);
-    return escolhas[indice];
-}
-
-
-// Função para verificar o vencedor do jogo
-function verificarVencedor(escolhaJogador, escolhaComputador) {
-    if (escolhaJogador == escolhaComputador) {
-        return "Empate!";
-    } else if ( (escolhaJogador == "pedra" && escolhaComputador == "tesoura") ||
-                (escolhaJogador == "papel" && escolhaComputador == "pedra") ||
-                (escolhaJogador == "tesoura" && escolhaComputador == "papel") ) {
-            return resultado = "Você venceu!";
-    } else {
-            return resultado = "Você perdeu!";
-    }
-}
-
-function jogarJokenpo(escolhaJogador) {
-    var escolhaJogador = input.value;
-    var escolhaComputador = computadorEscolhe();
-    var resultado = verificarVencedor(escolhaJogador, escolhaComputador);
-    
-    // Exibe as escolhas e o resultado
-    alert("JOKENPO");
-    alert("Jogador escolheu: " + escolhaJogador);
-    alert("Computador escolheu: " + escolhaComputador);
-    alert("Resultado: " + resultado);
-        if (resultado == "Você perdeu!"){
-            alert("GAME OVER");
-        }
-    input.value = ("");
-    input.focus();
-   
-}
-
-
-
-
-</script>
