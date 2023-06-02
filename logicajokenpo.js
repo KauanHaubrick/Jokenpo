@@ -56,7 +56,7 @@ function jogarJokenpo(escolhaJogador) {
     input.value = ("");
     input.focus();
 
-    if ( (resultado == "Você perdeu!"  ) || (resultado == "Você venceu")){
+    if ( (resultado == "Você perdeu"  ) || (resultado == "Você venceu")){
         mostraResultado(resultado + " a ultima partida.");
 
     } else {
