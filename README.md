@@ -3,5 +3,5 @@
 Status: alpha.
 
 ``
-Para jogar basta baixar o arquivo HTML e abrir no navegador.
+Baixe os arquivos Jokenpo.html e logicajokenpo.js, coloque-os na mesma pasta e abra o arquivo .html para jogar
 ``
