@@ -3,5 +3,5 @@
 Status: em desenvolvimento.
 
 ``
-Para jogar basta abrir no navegador
+Para jogar basta baixar o arquivo HTML e abrir no navegador.
 ``
