@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+
+<script>
+
+function mostra (frase){
+      document.write(frase);
+      document.write("<br>");
+  }
+
+mostra("<title>" + "JOKENPO" + "</title>");
+// Função para gerar a escolha aleatória do computador
+function computadorEscolhe() {
+    var escolhas = ['pedra', 'papel', 'tesoura'];
+    var indice = Math.floor(Math.random() * 3);
+    return escolhas[indice];
+}
+
+
+// Função para verificar o vencedor do jogo
+function verificarVencedor(escolhaJogador, escolhaComputador) {
+    if (escolhaJogador == escolhaComputador) {
+        return "Empate!";
+    } else if ( (escolhaJogador == "pedra" && escolhaComputador == "tesoura") ||
+                (escolhaJogador == "papel" && escolhaComputador == "pedra") ||
+                (escolhaJogador == "tesoura" && escolhaComputador == "papel") ) {
+            return resultado = "Você venceu!";
+    } else {
+            return resultado = "Você perdeu!";
+    }
+}
+
+function jogarJokenpo(escolhaJogador) {
+    var escolhaJogador = prompt("Escolha: pedra, papel ou tesoura");
+    var escolhaComputador = computadorEscolhe();
+    var resultado = verificarVencedor(escolhaJogador, escolhaComputador);
+    
+    // Exibe as escolhas e o resultado
+    alert("JOKENPO");
+    alert("Jogador escolheu: " + escolhaJogador);
+    alert("Computador escolheu: " + escolhaComputador);
+    alert("Resultado: " + resultado);    
+}
+
+var repetir = "sim";
+var resultado = resultado
+
+
+// Inicia o jogo e o jogador escolhe se continua jogando ou não.
+
+while(repetir == "sim") {
+jogarJokenpo("escolhaJogador");
+repetir = prompt("Deseja continuar?");
+}
+// Zoeira caso não continue jogando
+if (resultado == "Você perdeu!" && repetir == "não"){
+    alert("COMPUTADOR: FOGE IMUNDO");
+}
+
+if (resultado == "Você venceu!" && repetir == "não"){
+    alert("COMPUTADOR: SAINDO NA COVARDIA NÉ");
+}
+
+// Informa o fim do programa
+alert("GAME OVER");
+
+
+</script>
